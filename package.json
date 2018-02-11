@@ -1,0 +1,35 @@
+{
+	"name": "reltext",
+	"version": "0.0.0-dev.0",
+	"description": "set font size relative to element's height",
+	"keywords": [
+		"relative",
+		"font-size"
+	],
+	"main": "dist/reltext",
+	"types": "dist/reltext.d.ts",
+	"author": "Chase Moskal <chasemoskal@gmail.com>",
+	"license": "ISC",
+	"scripts": {
+		"prepare": "npm run build -s && npm test -s",
+		"clean": "rimraf dist && mkdirp dist",
+		"build": "npm run clean -s && run-p build-scripts && echo ✔ done production build",
+		"build-debug": "npm run clean -s && run-p build-scripts-debug && echo ✔ done debug build",
+		"build-scripts": "tsc && browserify source/reltext.global.ts -p [ tsify ] -g [ envify --NODE_ENV production ] -g uglifyify > dist/reltext.global.bundle.unoptimized.js && uglifyjs -cm < dist/reltext.global.bundle.unoptimized.js > dist/reltext.global.bundle.js",
+		"build-scripts-debug": "tsc && browserify source/reltext.global.ts --debug -p [ tsify ] > dist/reltext.global.bundle.js",
+		"test": "exit 0"
+	},
+	"devDependencies": {
+		"browserify": "16.0.0",
+		"envify": "4.1.0",
+		"http-server": "0.11.1",
+		"mkdirp": "0.5.1",
+		"node-sass": "4.7.2",
+		"npm-run-all": "4.1.2",
+		"rimraf": "2.6.2",
+		"tsify": "3.0.4",
+		"typescript": "2.7.1",
+		"uglify-es": "3.3.10",
+		"uglifyify": "4.0.5"
+	}
+}
