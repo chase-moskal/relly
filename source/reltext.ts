@@ -1,5 +1,5 @@
 
-function applyRelativeFontSize(element: HTMLElement, fraction: number = 1 / 10) {
+function applyRelativeFontSize(element: HTMLElement, fraction: number) {
 	const height = element.clientHeight
 	element.style.fontSize = (height * fraction) + "px"
 }
