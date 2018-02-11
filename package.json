@@ -1,6 +1,6 @@
 {
 	"name": "reltext",
-	"version": "0.0.0-dev.1",
+	"version": "0.0.0-dev.2",
 	"description": "set font size relative to element's height",
 	"keywords": [
 		"relative",

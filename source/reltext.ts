@@ -13,14 +13,17 @@ export default function reltext(
 
 ) {
 	elements = Array.from(elements)
+	const listeners = []
 
 	for (const element of elements) {
 		const listener = (event) => applyRelativeFontSize(element, fraction)
-
+		listeners.push(listener)
 		window.addEventListener("resize", listener)
 		applyRelativeFontSize(element, fraction)
+	}
 
-		return function cleanup() {
+	return function dispose() {
+		for (const listener of listeners) {
 			window.removeEventListener("resize", listener)
 		}
 	}
