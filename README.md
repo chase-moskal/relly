@@ -10,10 +10,10 @@
 	- import it — `import * as relly from "relly"`
 	- use styles and other stuff in `node_modules/relly/dist/`
 - **geezer mode: direct downloads and html tags**
-	- download directly
-		- *relly.global.bundle.js* — make "relly" object globally available
-		- *relly.scss* — mixins and such
-		- *relly.css* — css stylesheet has handy prefab classes
+	- download directly (save-as)
+		- [*relly.global.bundle.js*](https://github.com/chase-moskal/relly/raw/gh-pages/dist/relly.global.bundle.js) — make "relly" object globally available
+		- [*relly.css*](https://github.com/chase-moskal/relly/raw/gh-pages/dist/relly.css) — css stylesheet has handy prefab classes
+		- [*relly.scss*](https://github.com/chase-moskal/relly/raw/gh-pages/source/relly.scss) — mixins if you use sass
 	- place your html tags
 		- `<script src="node_modules/relly/dist/relly.global.bundle.js"></script>`
 		- `<link rel="stylesheet" href="node_modules/relly/dist/relly.css"/>`
