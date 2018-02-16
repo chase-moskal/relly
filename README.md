@@ -28,7 +28,7 @@ the element's height
 	relly.reltext()
 
 	// alternatively: you can pass parameters, here's an example with the defaults
-	const elements = document.querySelector(".relly-reltext")
+	const elements = document.querySelectorAll(".relly-reltext")
 	const fraction = 5 / 100 // font-size 1em becomes 5% of each element's height
 	relly.reltext({elements, fraction})
 	```
