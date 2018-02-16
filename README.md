@@ -1,27 +1,52 @@
 
-# reltext
+# relly — easy relative sizing for the web
 
-a bit of javascript which sets the font size of an element relative to 
+## download/install relly
+
+- **install it into your hip project**
+	- install it — `npm install relly`
+	- import it — `import * as relly from "relly"`
+	- use styles and other stuff in `node_modules/relly/dist/`
+- **geezer mode: direct downloads and html tags**
+	- download directly
+		- *relly.global.bundle.js* — make "relly" object globally available
+		- *relly.scss* — mixins and such
+		- *relly.css* — css stylesheet has handy prefab classes
+	- place your html tags
+		- `<script src="node_modules/relly/dist/relly.global.bundle.js"></script>`
+		- `<link rel="stylesheet" href="node_modules/relly/dist/relly.css"/>`
+
+## relly→**reltext**
+
+- a bit of javascript which sets the font size of an element relative to 
 the element's height
 
-made with love by chase moskal
+	```js
+	// just call reltext
+	relly.reltext()
 
-## reltext usage
+	// alternatively: you can pass parameters, here's an example with the defaults
+	const elements = document.querySelector(".relly-reltext")
+	const fraction = 5 / 100 // font-size 1em becomes 5% of each element's height
+	relly.reltext({elements, fraction})
+	```
 
-1. **install with npm** — `npm install reltext`
-2. **add html classnames** — `<div class="reltext">...</div>`
-2. **import into your code** — `import reltext from "reltext"`
-3. **execute reltext with defaults** — `reltext()`
+## relly→**aspectbox**
 
-### explicit usage with defaults
+- use prefab css classes
+	```html
+	<link rel="stylesheet" href="node_modules/relly/dist/relly.css"/>
 
-```javascript
-// elements to apply reltext on
-const elements = document.querySelectorAll(".reltext")
+	<div class="mydiv relly-aspectbox-16-9 relly-reltext">
+		reltext inside an aspectbox
+	</div>
+	```
 
-// font-size is 5% of the each element's height
-const fraction = 5 / 100
+- use sass mixins
+	```scss
+	@import "node_modules/relly/dist/relly.scss";
 
-// apply reltext
-reltext(elements, fraction)
-```
+	.mydiv {
+		@include relly-aspectbox(16, 9)
+	}
+	```

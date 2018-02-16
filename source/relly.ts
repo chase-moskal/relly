@@ -4,13 +4,15 @@ function applyRelativeFontSize(element: HTMLElement, fraction: number) {
 	element.style.fontSize = (height * fraction) + "px"
 }
 
-export default function reltext(
-
+export interface ReltextParams {
 	elements: HTMLElement[] | NodeListOf<HTMLElement>
-		= document.querySelectorAll<HTMLElement>(".reltext"),
+	fraction: number
+}
 
-	fraction = 5 / 100
-
+export function reltext({
+		elements = document.querySelectorAll<HTMLElement>(".relly-reltext"),
+		fraction = 5 / 100
+	}: Partial<ReltextParams> = {}
 ) {
 	elements = Array.from(elements)
 	const listeners = []

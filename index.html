@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="device-width, initial-scale=1"/>
+		<title>relly — easy relative sizing for the web</title>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato"/>
+		<link rel="stylesheet" href="dist/relly.css"/>
+		<style>
+			html {
+				background: #333;
+				color: #eee;
+				font-family: Lato, sans-serif;
+			}
+			main {
+				padding: 1em 2em;
+				background: #555;
+				border: 1px solid #777;
+				border-radius: 0.4em;
+			}
+			main h1 { font-size: 1.5em; }
+			main h1 > span:nth-child(1) { font-style: italic; }
+			main h1 > span:nth-child(1):after { content: " —"; }
+			main p {
+				padding-left: 0.5em;
+				font-size: 1em;
+			}
+			main a { color: skyblue; }
+		</style>
+	</head>
+	<body>
+		<main class="relly-aspectbox-16-9 relly-reltext">
+			<h1>
+				<span>relly</span>
+				<span>easy relative sizing for the web</span>
+			</h1>
+			<p>by <a href="https://chasemoskal.com">chase moskal</a></p>
+		</main>
+		<script src="dist/relly.global.bundle.js"></script>
+		<script>
+			relly.reltext()
+		</script>
+	</body>
+</html>
