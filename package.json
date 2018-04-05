@@ -1,6 +1,6 @@
 {
 	"name": "relly",
-	"version": "0.0.0-dev.5",
+	"version": "0.0.0",
 	"description": "toolkit for relative div and font sizing",
 	"keywords": [
 		"relative",
