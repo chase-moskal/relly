@@ -12,16 +12,63 @@
 - **geezer mode: direct downloads and html tags**
 	- download directly (save-as)
 		- [*relly.global.bundle.js*](https://github.com/chase-moskal/relly/raw/gh-pages/dist/relly.global.bundle.js) — make "relly" object globally available
-		- [*relly.css*](https://github.com/chase-moskal/relly/raw/gh-pages/dist/relly.css) — css stylesheet has handy prefab classes
-		- [*relly.scss*](https://github.com/chase-moskal/relly/raw/gh-pages/source/relly.scss) — mixins if you use sass
+		- [*relly.scss*](https://github.com/chase-moskal/relly/raw/gh-pages/source/relly.scss) — mixins for sass
+		- [*relly.css*](https://github.com/chase-moskal/relly/raw/gh-pages/dist/relly.css) — some handy css classes
 	- place your html tags
 		- `<script src="node_modules/relly/dist/relly.global.bundle.js"></script>`
 		- `<link rel="stylesheet" href="node_modules/relly/dist/relly.css"/>`
 
-## relly→**reltext**
+----
 
-- a bit of javascript which sets the font size of an element relative to 
-the element's height
+## scss mixins (`relly/source/relly.scss`)
+
+### relly-aspectbox(`$x, $y`)
+
+- have an element maintain a specific aspect ratio
+
+- for example, you could force a box to take on a 16/9 aspect ratio
+
+- sass mixin
+	```scss
+	@import "node_modules/relly/dist/relly.scss";
+
+	.mydiv {
+		@include relly-aspectbox(16, 9)
+	}
+	```
+
+- prefab css classes
+	```html
+	<link rel="stylesheet" href="node_modules/relly/dist/relly.css"/>
+
+	<div class="mydiv relly-aspectbox-16-9 relly-reltext">
+		reltext inside an aspectbox
+	</div>
+	```
+
+### relly-aspectfrac(`$fraction`)
+
+- same as `relly-aspectbox` above, however allowing direct input of the ratio fraction
+
+- sass mixin
+	```scss
+	@import "node_modules/relly/dist/relly.scss";
+
+	.mydiv {
+		@include relly-aspectfrac(56.25%);
+	}
+	```
+
+----
+
+## javascript functions
+
+### relly.reltext()
+
+- maintain font-size relative to an element's height, by a specific fraction
+
+- javascript function which maintains the font size of an element relative to 
+the element's own height
 
 	```js
 	// just call reltext
@@ -31,24 +78,4 @@ the element's height
 	const elements = document.querySelectorAll(".relly-reltext")
 	const fraction = 5 / 100 // font-size 1em becomes 5% of each element's height
 	relly.reltext({elements, fraction})
-	```
-
-## relly→**aspectbox**
-
-- use prefab css classes
-	```html
-	<link rel="stylesheet" href="node_modules/relly/dist/relly.css"/>
-
-	<div class="mydiv relly-aspectbox-16-9 relly-reltext">
-		reltext inside an aspectbox
-	</div>
-	```
-
-- use sass mixins
-	```scss
-	@import "node_modules/relly/dist/relly.scss";
-
-	.mydiv {
-		@include relly-aspectbox(16, 9)
-	}
 	```
